@@ -1,6 +1,6 @@
 ## Trainer </br>
 
-Development of training PyTorch models is not so simple. The training scripts are not generalizable from project to project. For a project, one has to write custom training loops, keep track of loss and metric calculations, to use or not to use use learning rate schedulers, and so on. Once it is done, utilizing these scripts for a different project requires a lot of code changes to be done and it is a time consuming task. </br>
+Development of training PyTorch models is not so simple. The training scripts are not generalizable from project to project. For a project, one has to write custom training loops, keep track of loss and metric calculations, to use learning rate schedulers if necessary, and so on. Once it is done, utilizing these scripts for a different project requires a lot of code changes to be done and it is a time consuming task. </br>
 
 This Trainer makes development of Pytorch training extremely easy and fast while making it as generic as possible from project to project. It helps an individual to focus more on data preprocessing and experimenting various model architectures rather than spending more than sufficient amount of time on writing training scripts. The Trainer also provides many interesting features which can be easily used as required. </br>
 
