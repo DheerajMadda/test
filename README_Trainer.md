@@ -9,25 +9,25 @@ This Trainer makes development of Pytorch training extremely easy and fast while
 
 The Trainer features the following: </br>
 
-- Supports Model Profiling: Model Size, Num_Parameters, MACs, FLOPs, Inference Latency </br>
+- Supports **Model Profiling**: Model Size, Num_Parameters, MACs, FLOPs, Inference Latency </br>
 
-- Supports Model Training: Single-Input-Single-Output, Single-Input-Multiple-Output, Multiple-Input-Multiple-Output </br>
+- Supports **Model Training Types**: Single-Input-Single-Output, Single-Input-Multiple-Output, Multiple-Input-Multiple-Output </br>
 
-- Supports Learning Rate Scheduler: OneCycleLR </br>
+- Supports **Learning Rate Scheduler**: OneCycleLR </br>
 
-- Supports Metrics: Single or multiple metric(s) </br>
+- Supports **Metrics**: Single or multiple metric(s) </br>
 
-- Supports Callbacks: EarlyStopping, ModelCheckpoint </br>
+- Supports **Callbacks**: EarlyStopping, ModelCheckpoint </br>
 
-- Supports Loggers: CSVLogger, TensorBoardLogger </br>
+- Supports **Loggers**: CSVLogger, TensorBoardLogger </br>
 
-- Supports Training Precisions: FP32, FP16, BF16, FP16 AMP, BF16 AMP </br>
+- Supports **Training Precisions**: FP32, FP16, BF16, FP16 AMP, BF16 AMP </br>
 
-- Supports Gradient Accumulation: Accumulates gradients over several batches </br>
+- Supports **Gradient Accumulation**: Accumulates gradients over several batches </br>
 
-- Supports Training History: Epoch, learning rate, loss and/ or metric(s) </br>
+- Supports **Training History**: Epoch, learning rate, loss and/ or metric(s) </br>
 
-- Supports Training Progress Bar: Epoch, learning rate, loss and/ or metric(s) </br>
+- Supports **Training Progress Bar**: Epoch, learning rate, loss and/ or metric(s) </br>
 
 </br>
 </br>
@@ -61,7 +61,7 @@ Note: </br>
 
 - Model Profiling: It is always good to perform the model profiling before training to get the complexity of the model. It computes the Model Size, Num_Parameters, MACs, FLOPs, Inference Latency. It supports profiling for both devices, "cpu" and "cuda". </br>
 
-- Supports Model Training: </br>
+- Supports Model Training Types: </br>
 
 □ Single-Input-Single-Output: The Trainer can train a model that accepts single input and produces a single output, a torch.tensor(). </br>
 
