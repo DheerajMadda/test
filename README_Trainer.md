@@ -59,33 +59,33 @@ Note: </br>
 
 ### Please read the following to understand the features provided by the Trainer: </br>
 
-- Model Profiling: It is always good to perform the model profiling before training to get the complexity of the model. It computes the Model Size, Num_Parameters, MACs, FLOPs, Inference Latency. It supports profiling for both devices, "cpu" and "cuda". </br>
+- **Model Profiling:** It is always good to perform the model profiling before training to get the complexity of the model. It computes the Model Size, Num_Parameters, MACs, FLOPs, Inference Latency. It supports profiling for both devices, "cpu" and "cuda". </br>
 
-- Supports Model Training Types: </br>
+- **Model Training Types:** </br>
 
-□ Single-Input-Single-Output: The Trainer can train a model that accepts single input and produces a single output, a torch.tensor(). </br>
+□ **Single-Input-Single-Output:** The Trainer can train a model that accepts single input and produces a single output, a torch.tensor(). </br>
 
-□ Single-Input-Multiple-Output: The Trainer can train a model that accepts single input and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()). </br>
+□ **Single-Input-Multiple-Output:** The Trainer can train a model that accepts single input and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()). </br>
 
-□ Multiple-Input-Multiple-Output: The Trainer can train a model that accepts multiple inputs, i.e. torch.tensor(), torch.tensor(), ..., torch.tensor() and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()).</br>
+□ **Multiple-Input-Multiple-Output:** The Trainer can train a model that accepts multiple inputs, i.e. torch.tensor(), torch.tensor(), ..., torch.tensor() and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()).</br>
 
-- Learning Rate Scheduler: The trainer only supports OneCycleLR scheduler. It is a widely used scheduler and unlike StepLR/ MultiStepLR and many other schedulers, it updates the optimizer's learning rate over each batch. It is based on a 2018 paper titled "Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates" (https://arxiv.org/abs/1708.07120) </br>
+- **Learning Rate Scheduler:** The trainer only supports OneCycleLR scheduler. It is a widely used scheduler and unlike StepLR/ MultiStepLR and many other schedulers, it updates the optimizer's learning rate over each batch. It is based on a 2018 paper titled "Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates" (https://arxiv.org/abs/1708.07120) </br>
 
-- Metrics: The trainer supports single or multiple metric(s) by defining it as a dictionary, where key is the metric name and its value should be the metric function. It is recommended to use [torchmetrics](https://pypi.org/project/torchmetrics/) as it supports computations on "cpu" as well as "cuda". </br>
+- **Metrics:** The trainer supports single or multiple metric(s) by defining it as a dictionary, where key is the metric name and its value should be the metric function. It is recommended to use [torchmetrics](https://pypi.org/project/torchmetrics/) as it supports computations on "cpu" as well as "cuda". </br>
 
-- Callbacks: </br>
+- **Callbacks:** </br>
 
-□ EarlyStopping: It uses a patience (an integer value) that determines the number of times to wait after last time validation loss improved before stopping the training. It only works if validation dataloader is used! </br>
+□ **EarlyStopping:** It uses a patience (an integer value) that determines the number of times to wait after last time validation loss improved before stopping the training. It only works if validation dataloader is used! </br>
 
-□ ModelCheckpoint: It saves the checkpoint(s) (model, optimizer, scheduler) to the disk for each epoch. It also features to only save the best checkpoint. </br>
+□ **ModelCheckpoint:** It saves the checkpoint(s) (model, optimizer, scheduler) to the disk for each epoch. It also features to only save the best checkpoint. </br>
 
-- Loggers: </br>
+- **Loggers:** </br>
 
-□ CSVLogger: It logs the hyperparameters (batch_size, epochs, optimizer, scheduler), loss and/ or metrics to a csv file. </br>
+□ **CSVLogger:** It logs the hyperparameters (batch_size, epochs, optimizer, scheduler), loss and/ or metrics to a csv file. </br>
 
-□ TensorBoardLogger: It logs the hyperparameters (batch_size, epochs, optimizer, scheduler), loss and/ or metrics to a tensorboard log file which then can be visualized in TensorBoard. </br>
+□ **TensorBoardLogger:** It logs the hyperparameters (batch_size, epochs, optimizer, scheduler), loss and/ or metrics to a tensorboard log file which then can be visualized in TensorBoard. </br>
 
-- Training Precisions: </br>
+- **Training Precisions:** </br>
 
 □ **FP32**: This is the default training precision (single-precision) of the Trainer. Range:- 1.17e-38 to 3.40e38 </br>
 
@@ -97,11 +97,11 @@ Note: </br>
 
 □ **BF16 AMP (Automatic Mixed Precision)**: It trains the model in both FP32 and BFP16. The reduction in memory consumption may not be significant. </br>
 
-- Gradient Accumulation: It is a technique where you can train on bigger batch sizes than your machine would normally be able to fit into memory. This is done by accumulating gradients over several batches, and only stepping the optimizer after a certain number of batches have been performed. It will cost additional training time. </br>
+- **Gradient Accumulation:** It is a technique where you can train on bigger batch sizes than your machine would normally be able to fit into memory. This is done by accumulating gradients over several batches, and only stepping the optimizer after a certain number of batches have been performed. It will cost additional training time. </br>
 
-- Training History: It records the training history:- epoch, learning rate, loss and/or metric(s). It also provides methods to plot the loss and metric(s). </br>
+- **Training History:** It records the training history:- epoch, learning rate, loss and/or metric(s). It also provides methods to plot the loss and metric(s). </br>
 
-- Training Progress Bar: It shows progress bar for training while displaying epoch, learning rate, loss and/or metric(s) for each iteration as well as for an epoch.
+- **Training Progress Bar:** It shows progress bar for training while displaying epoch, learning rate, loss and/or metric(s) for each iteration as well as for an epoch.
 
 </br>
 </br>
