@@ -11,7 +11,7 @@ The Trainer features the following: </br>
 
 - Supports **Model Profiling**: Model Size, Num_Parameters, MACs, FLOPs, Inference Latency </br>
 
-- Supports **Model Training Types**: Single-Input-Single-Output, Single-Input-Multiple-Output, Multiple-Input-Multiple-Output </br>
+- Supports **Model Training Types**: Single-Input-Single-Output, Single-Input-Multiple-Outputs, Multiple-Inputs-Multiple-Outputs </br>
 
 - Supports **Learning Rate Scheduler**: OneCycleLR </br>
 
@@ -65,9 +65,9 @@ Note: </br>
 
 □ **Single-Input-Single-Output:** The Trainer can train a model that accepts single input and produces a single output, a torch.tensor(). </br>
 
-□ **Single-Input-Multiple-Output:** The Trainer can train a model that accepts single input and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()). </br>
+□ **Single-Input-Multiple-Outputs:** The Trainer can train a model that accepts single input and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()). </br>
 
-□ **Multiple-Input-Multiple-Output:** The Trainer can train a model that accepts multiple inputs, i.e. torch.tensor(), torch.tensor(), ..., torch.tensor() and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()).</br>
+□ **Multiple-Inputs-Multiple-Outputs:** The Trainer can train a model that accepts multiple inputs, i.e. torch.tensor(), torch.tensor(), ..., torch.tensor() and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()).</br>
 
 - **Learning Rate Scheduler:** The trainer only supports OneCycleLR scheduler. It is a widely used scheduler and unlike StepLR/ MultiStepLR and many other schedulers, it updates the optimizer's learning rate over each batch. It is based on a 2018 paper titled "Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates" (https://arxiv.org/abs/1708.07120) </br>
 
