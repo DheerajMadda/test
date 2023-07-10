@@ -63,11 +63,11 @@ Note: </br>
 
 - **Model Training Types:** </br>
 
-□ **Single-Input-Single-Output:** The Trainer can train a model that accepts single input and produces a single output, a torch.tensor(). </br>
+&emsp;&emsp; □ **Single-Input-Single-Output:** The Trainer can train a model that accepts single input and produces a single output, a torch.tensor(). </br>
 
-□ **Single-Input-Multiple-Outputs:** The Trainer can train a model that accepts single input and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()). </br>
+&emsp;&emsp; □ **Single-Input-Multiple-Outputs:** The Trainer can train a model that accepts single input and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()). </br>
 
-□ **Multiple-Inputs-Multiple-Outputs:** The Trainer can train a model that accepts multiple inputs, i.e. torch.tensor(), torch.tensor(), ..., torch.tensor() and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()).</br>
+&emsp;&emsp; □ **Multiple-Inputs-Multiple-Outputs:** The Trainer can train a model that accepts multiple inputs, i.e. torch.tensor(), torch.tensor(), ..., torch.tensor() and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()).</br>
 
 - **Learning Rate Scheduler:** The Trainer only supports OneCycleLR scheduler. It is a widely used scheduler and unlike StepLR/ MultiStepLR and many other schedulers, it updates the optimizer's learning rate over each batch. It is based on a 2018 paper titled "Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates" (https://arxiv.org/abs/1708.07120) </br>
 
@@ -75,27 +75,27 @@ Note: </br>
 
 - **Callbacks:** </br>
 
-□ **EarlyStopping:** It uses a patience (an integer value) that determines the number of times to wait after last time validation loss improved before stopping the training. It only works if validation dataloader is used! </br>
+&emsp;&emsp; □ **EarlyStopping:** It uses a patience (an integer value) that determines the number of times to wait after last time validation loss improved before stopping the training. It only works if validation dataloader is used! </br>
 
-□ **ModelCheckpoint:** It saves the checkpoint(s) (model, optimizer, scheduler) to the disk for each epoch. It also features to only save the best checkpoint. </br>
+&emsp;&emsp; □ **ModelCheckpoint:** It saves the checkpoint(s) (model, optimizer, scheduler) to the disk for each epoch. It also features to only save the best checkpoint. </br>
 
 - **Loggers:** </br>
 
-□ **CSVLogger:** It logs the hyperparameters (batch_size, epochs, optimizer, scheduler), loss and/ or metrics to a csv file. </br>
+&emsp;&emsp; □ **CSVLogger:** It logs the hyperparameters (batch_size, epochs, optimizer, scheduler), loss and/ or metrics to a csv file. </br>
 
-□ **TensorBoardLogger:** It logs the hyperparameters (batch_size, epochs, optimizer, scheduler), loss and/ or metrics to a tensorboard log file which then can be visualized in TensorBoard. </br>
+&emsp;&emsp; □ **TensorBoardLogger:** It logs the hyperparameters (batch_size, epochs, optimizer, scheduler), loss and/ or metrics to a tensorboard log file which then can be visualized in TensorBoard. </br>
 
 - **Training Precisions:** </br>
 
-□ **FP32**: This is the default training precision (single-precision) of the Trainer. Range:- 1.17e-38 to 3.40e38 </br>
+&emsp;&emsp; □ **FP32**: This is the default training precision (single-precision) of the Trainer. Range:- 1.17e-38 to 3.40e38 </br>
 
-□ **FP16**: It trains the model in FP16 (half-precision). It helps in reducing memory consumption. But it is recommended to **NOT** use this precision for training as it has small dynamic range and may result in NaN values during training. Range:- 6.10e-5 to 6.55e4 </br>
+&emsp;&emsp; □ **FP16**: It trains the model in FP16 (half-precision). It helps in reducing memory consumption. But it is recommended to **NOT** use this precision for training as it has small dynamic range and may result in NaN values during training. Range:- 6.10e-5 to 6.55e4 </br>
 
-□ **BF16**: It trains the model in Brain-Floating, BFP16 (half-precision: a format that was developed by Google Brain, an artificial intelligence research group at Google). It helps in reducing memory consumption. It is preferred over FP16 as it has the same dynamic range as FP32, thus it will avoid producing NaN values during training. It is important to note that it is only supported on the Ampere architecture GPUs and the Trainer will raise an Exception if it is compiled with BF16 for CPU, or the GPU that does not support it. Range:- 1.17e-38 to 3.40e38 </br>
+&emsp;&emsp; □ **BF16**: It trains the model in Brain-Floating, BFP16 (half-precision: a format that was developed by Google Brain, an artificial intelligence research group at Google). It helps in reducing memory consumption. It is preferred over FP16 as it has the same dynamic range as FP32, thus it will avoid producing NaN values during training. It is important to note that it is only supported on the Ampere architecture GPUs and the Trainer will raise an Exception if it is compiled with BF16 for CPU, or the GPU that does not support it. Range:- 1.17e-38 to 3.40e38 </br>
 
-□ **FP16 AMP (Automatic Mixed Precision)**: It trains the model in both FP32 and FP16. The reduction in memory consumption may not be significant. It is preferred over just FP16 as it uses both the single and half precisions that will avoid producing NaN values during training. </br>
+&emsp;&emsp; □ **FP16 AMP (Automatic Mixed Precision)**: It trains the model in both FP32 and FP16. The reduction in memory consumption may not be significant. It is preferred over just FP16 as it uses both the single and half precisions that will avoid producing NaN values during training. </br>
 
-□ **BF16 AMP (Automatic Mixed Precision)**: It trains the model in both FP32 and BFP16. The reduction in memory consumption may not be significant. </br>
+&emsp;&emsp; □ **BF16 AMP (Automatic Mixed Precision)**: It trains the model in both FP32 and BFP16. The reduction in memory consumption may not be significant. </br>
 
 - **Gradient Accumulation:** It is a technique where you can train on bigger batch sizes than your machine would normally be able to fit into memory. This is done by accumulating gradients over several batches, and only stepping the optimizer after a certain number of batches have been performed. It will cost additional training time. </br>
 
@@ -139,9 +139,9 @@ Multiply-Accumulate Computations, or MACs. MAC is an operation that performs two
 
 - (Optional) FLOPS:- </br>
 
-□ The FLOPS, with a capital S; It is not a model KPI. FLoating point OPerations per Second or FLOPS, is a rate that provides information about the quality of the hardware on which the model is supposed to be deployed. The inference will happen more quickly if the more operations per second we can perform. </br>
+&emsp;&emsp; □ The FLOPS, with a capital S; It is not a model KPI. FLoating point OPerations per Second or FLOPS, is a rate that provides information about the quality of the hardware on which the model is supposed to be deployed. The inference will happen more quickly if the more operations per second we can perform. </br>
 
-□ Estimating Inference Time even before training or building a model:- </br>
+&emsp;&emsp; □ Estimating Inference Time even before training or building a model:- </br>
 
 Consider a neural network that has 'x' Parameters (e.g. weights and biases). </br>
 
