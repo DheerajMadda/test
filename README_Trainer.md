@@ -1,6 +1,6 @@
 ## Trainer </br>
 
-Development of training PyTorch models is not so simple. The training scripts are not generalizable from project to project. For a project, one has to write custom training loops, keeping track of loss and metric calculations, to use or not to use use learning rate schedulers, and so on. Once it is done, utilizing these scripts for a different project requires a lot of code changes to be done and it is a time consuming task. </br>
+Development of training PyTorch models is not so simple. The training scripts are not generalizable from project to project. For a project, one has to write custom training loops, keep track of loss and metric calculations, to use or not to use use learning rate schedulers, and so on. Once it is done, utilizing these scripts for a different project requires a lot of code changes to be done and it is a time consuming task. </br>
 
 This Trainer makes development of Pytorch training extremely easy and fast while making it as generic as possible from project to project. It helps an individual to focus more on data preprocessing and experimenting various model architectures rather than spending more than sufficient amount of time on writing training scripts. The Trainer also provides many interesting features which can be easily used as required. </br>
 
@@ -10,6 +10,8 @@ This Trainer makes development of Pytorch training extremely easy and fast while
 The Trainer features the following: </br>
 
 - Supports Model Profiling: Model Size, Num_Parameters, MACs, FLOPs, Inference Latency </br>
+
+- Supports Model Training: Single-Input-Single-Output, Single-Input-Multiple-Output, Multiple-Input-Multiple-Output </br>
 
 - Supports Learning Rate Scheduler: OneCycleLR </br>
 
@@ -57,9 +59,17 @@ Note: </br>
 
 ### Please read the following to understand the features provided by the Trainer: </br>
 
-- Model Profiling: It is always good to perform the model profiling before training to get the complexity of the model. It supports profiling for both devices, "cpu" and "cuda". </br>
+- Model Profiling: It is always good to perform the model profiling before training to get the complexity of the model. It computes the Model Size, Num_Parameters, MACs, FLOPs, Inference Latency. It supports profiling for both devices, "cpu" and "cuda". </br>
 
-- Learning Rate Scheduler: The trainer only supports OneCycleLR scheduler as it is widely used and updates the optimizer's learning rate over each batch. It is based on a 2018 paper titled "Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates" (https://arxiv.org/abs/1708.07120) </br>
+- Supports Model Training: </br>
+
+□ Single-Input-Single-Output: The Trainer can train a model that accepts single input and produces a single output, a torch.tensor(). </br>
+
+□ Single-Input-Multiple-Output: The Trainer can train a model that accepts single input and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()). </br>
+
+□ Multiple-Input-Multiple-Output: The Trainer can train a model that accepts multiple inputs, i.e. torch.tensor(), torch.tensor(), ..., torch.tensor() and produces multiple outputs, i.e tuple(torch.tensor(), torch.tensor(), ..., torch.tensor()).</br>
+
+- Learning Rate Scheduler: The trainer only supports OneCycleLR scheduler. It is a widely used scheduler and unlike StepLR/ MultiStepLR and many other schedulers, it updates the optimizer's learning rate over each batch. It is based on a 2018 paper titled "Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates" (https://arxiv.org/abs/1708.07120) </br>
 
 - Metrics: The trainer supports single or multiple metric(s) by defining it as a dictionary, where key is the metric name and its value should be the metric function. It is recommended to use [torchmetrics](https://pypi.org/project/torchmetrics/) as it supports computations on "cpu" as well as "cuda". </br>
 
@@ -119,11 +129,11 @@ Complexity of the model can be measured using the model size, Floating Point Ope
 
 Let us understand what are FLOPs and MACs. </br>
 
-- 1. FLOPs:- </br>
+- FLOPs:- </br>
 
 We can determine the total amount of calculations the model will need to carry out in order to estimate the inference time for that model. FLoating point OPeration, or FLOP, actually is an operation involving a floating point value, including addition, subtraction, division, and multiplication falls under this category. </br>
 
-- 2. MACs:- </br>
+- MACs:- </br>
 
 Multiply-Accumulate Computations, or MACs. MAC is an operation that performs two operations - addition and multiplication. A neural network always performs additions and multiplications. (e.g input * weight + bias). We typically assume that 1 MAC = 2 FLOPs. </br>
 
