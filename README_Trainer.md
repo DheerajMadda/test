@@ -41,6 +41,27 @@ Note: </br>
 </br>
 </br>
 
+### Examples: </br>
+
+</br>
+</br>
+
+<img width="512" alt="profiling" src="https://github.com/DheerajMadda/test/assets/50489165/62bf0e7f-7d5b-4f47-8e8e-32396d4beedc">
+
+</br>
+</br>
+
+<img width="512" alt="trainer" src="https://github.com/DheerajMadda/test/assets/50489165/ac3d4570-a6a0-46d9-a266-a647371537a3">
+<img width="512" alt="progress_bar" src="https://github.com/DheerajMadda/test/assets/50489165/af4370fa-d568-4d08-b0d3-1a5dc8094e32">
+
+</br>
+</br>
+
+<img width="850" alt="history" src="https://github.com/DheerajMadda/test/assets/50489165/c7e84cd8-3097-4779-961e-9766f212673f">
+
+</br>
+</br>
+
 #### Directory and files information:-
 - [notebooks](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/) -> contains the jupyter notebook. 
 
