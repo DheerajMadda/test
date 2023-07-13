@@ -38,6 +38,8 @@ Note: </br>
 
 - It is suggested to use PyTorch 2.0 and above, as the Trainer is tested for the same. </br>
 
+- It is recommended to use [torchmetrics](https://pypi.org/project/torchmetrics/) as it supports computations on "cpu" as well as "cuda". </br>
+
 - To get started with this Trainer, please go through [this](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/1_Torch_Trainer_Tutorial.ipynb) notebook. </br>
 
 </br>
@@ -96,7 +98,7 @@ Note: </br>
 
 - **Learning Rate Scheduler:** The Trainer only supports OneCycleLR scheduler. It is a widely used scheduler and unlike StepLR/ MultiStepLR and many other schedulers, it updates the optimizer's learning rate over each batch. It is based on a 2018 paper titled "Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates" (https://arxiv.org/abs/1708.07120) </br>
 
-- **Metrics:** The trainer supports single or multiple metric(s) by defining it as a dictionary, where key is the metric name and its value should be the metric function. It is recommended to use [torchmetrics](https://pypi.org/project/torchmetrics/) as it supports computations on "cpu" as well as "cuda". </br>
+- **Metrics:** The trainer supports single or multiple metric(s) by defining it as a dictionary, where key is the metric name and its value should be the metric function. </br>
 
 - **Callbacks:** </br>
 
