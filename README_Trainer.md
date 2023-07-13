@@ -7,24 +7,17 @@ This Trainer makes development of Pytorch training extremely easy and fast while
 </br>
 </br>
 
-<img width="1024" alt="image" src="https://github.com/DheerajMadda/test/assets/50489165/39bffed4-0c0f-4b44-9a44-20e04717c3e3">
-
-</br>
-</br>
-
 The Trainer features the following: </br>
 
 - Supports **Model Profiling**: Model Size, Num_Parameters, MACs, FLOPs, Inference Latency </br>
 
-- Supports **Model Training Types**: Single-Input-Single-Output, Single-Input-Multiple-Outputs, Multiple-Inputs-Multiple-Outputs </br>
+- Supports **Model Types**: Single-Input-Single-Output, Single-Input-Multiple-Outputs, Multiple-Inputs-Multiple-Outputs </br>
 
 - Supports **Learning Rate Scheduler**: OneCycleLR </br>
 
 - Supports **Metrics**: Single or multiple metric(s) </br>
 
 - Supports **Callbacks**: EarlyStopping, ModelCheckpoint </br>
-
-- Supports **Loggers**: CSVLogger, TensorBoardLogger </br>
 
 - Supports **Training Precisions**: FP32, FP16, BF16, FP16 AMP, BF16 AMP </br>
 
@@ -49,13 +42,13 @@ Note: </br>
 </br>
 
 #### Directory and files information:-
-- [notebooks](https://github.com/tpjesudhas/cv_component/tree/main/core/Image_Segmentation/SegFormer/notebooks) -> contains the jupyter notebook. 
+- [notebooks](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/) -> contains the jupyter notebook. 
 
-- [torch_trainer](https://github.com/tpjesudhas/cv_component/tree/main/core/Image_Segmentation/SegFormer/utils) -> contains the profiling and training utilities.
+- [torch_trainer](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/torch_trainer) -> contains the profiling and training utilities.
 
-- [utils](https://github.com/tpjesudhas/cv_component/tree/main/core/Image_Segmentation/SegFormer/utils) -> contains the loss and metrics definition.
+- [utils](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/utils) -> contains the loss and metrics definition.
 
-- [requirements.txt](https://github.com/tpjesudhas/cv_component/tree/main/core/Image_Segmentation/SegFormer/requirements.txt) -> contains all the required libraries to be installed.
+- [requirements.txt](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/requirements.txt) -> contains all the required libraries to be installed.
 
 </br>
 </br>
@@ -66,7 +59,7 @@ Note: </br>
 
 - **Model Profiling:** It is always good to perform the model profiling before training to get the complexity of the model. It computes the Model Size, Num_Parameters, MACs, FLOPs, Inference Latency. It supports profiling for both devices, "cpu" and "cuda". </br>
 
-- **Model Training Types:** </br>
+- **Model Types:** </br>
 
 &emsp;&emsp; □ **Single-Input-Single-Output:** The Trainer can train a model that accepts single input and produces a single output, a torch.tensor(). </br>
 
@@ -84,23 +77,17 @@ Note: </br>
 
 &emsp;&emsp; □ **ModelCheckpoint:** It saves the checkpoint(s) (model, optimizer, scheduler) to the disk for each epoch. It also features to only save the best checkpoint. </br>
 
-- **Loggers:** </br>
-
-&emsp;&emsp; □ **CSVLogger:** It logs the hyperparameters (batch_size, epochs, optimizer, scheduler), loss and/ or metrics to a csv file. </br>
-
-&emsp;&emsp; □ **TensorBoardLogger:** It logs the hyperparameters (batch_size, epochs, optimizer, scheduler), loss and/ or metrics to a tensorboard log file which then can be visualized in TensorBoard. </br>
-
 - **Training Precisions:** </br>
 
 &emsp;&emsp; □ **FP32**: This is the default training precision (single-precision) of the Trainer. Range:- 1.17e-38 to 3.40e38 </br>
 
 &emsp;&emsp; □ **FP16**: It trains the model in FP16 (half-precision). It helps in reducing memory consumption. But it is recommended to **NOT** use this precision for training as it has small dynamic range and may result in NaN values during training. Range:- 6.10e-5 to 6.55e4 </br>
 
-&emsp;&emsp; □ **BF16**: It trains the model in Brain-Floating, BFP16 (half-precision: a format that was developed by Google Brain, an artificial intelligence research group at Google). It helps in reducing memory consumption. It is preferred over FP16 as it has the same dynamic range as FP32, thus it will avoid producing NaN values during training. It is important to note that it is only supported on the Ampere architecture GPUs and the Trainer will raise an Exception if it is compiled with BF16 for CPU, or the GPU that does not support it. Range:- 1.17e-38 to 3.40e38 </br>
+&emsp;&emsp; □ **BF16**: It trains the model in  </br>
 
-&emsp;&emsp; □ **FP16 AMP (Automatic Mixed Precision)**: It trains the model in both FP32 and FP16. The reduction in memory consumption may not be significant. It is preferred over just FP16 as it uses both the single and half precisions that will avoid producing NaN values during training. </br>
+&emsp;&emsp; □ **FP16 AMP (Automatic Mixed Precision)**: It trains the model in both FP32 and FP16. The reduction in memory consumption may not be significant. It is preferred over true FP16 as it uses both the single and half precisions that will avoid producing NaN values during training. </br>
 
-&emsp;&emsp; □ **BF16 AMP (Automatic Mixed Precision)**: It trains the model in both FP32 and BFP16. The reduction in memory consumption may not be significant. </br>
+&emsp;&emsp; □ **BF16 AMP (Automatic Mixed Precision)**: Brain-Floating, BFP16 (half-precision: a format that was developed by Google Brain, an artificial intelligence research group at Google). It helps in reducing memory consumption. It has the same dynamic range as FP32. It is important to note that it is only supported on the Ampere architecture GPUs and the Trainer will raise an Exception if it is compiled with BF16 for CPU, or the GPU that does not support it. Range:- 1.17e-38 to 3.40e38. Now, BF16 AMP (Automatic Mixed Precision), it trains the model in both FP32 and BFP16. The reduction in memory consumption may not be significant. </br>
 
 - **Gradient Accumulation:** It is a technique where you can train on bigger batch sizes than your machine would normally be able to fit into memory. This is done by accumulating gradients over several batches, and only stepping the optimizer after a certain number of batches have been performed. It will cost additional training time. </br>
 
@@ -113,14 +100,14 @@ Note: </br>
 
 ## Examples
 
-- Below is an example of profiling and its output taken from [this notebook](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/1_Utilizing_Trainer.ipynb) </br>
+- Below is an example of profiling and its output taken from [this notebook](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/1_Torch_Trainer_Tutorial.ipynb) </br>
 
 <img width="512" alt="profiling" src="https://user-images.githubusercontent.com/50489165/224521425-6155462b-10da-4ed5-be35-48e2ef2388a7.png">
 
 </br>
 </br>
 
-- Below is an example of training the model using the Trainer, taken from [this notebook](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/1_Utilizing_Trainer.ipynb). Also, this notebook provides a means to have the better understanding of the utilization of features the Trainer provides and on how to include it in your pytorch projects. </br>
+- Below is an example of training the model using the Trainer, taken from [this notebook](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/1_Torch_Trainer_Tutorial.ipynb). Also, this notebook provides a means to have the better understanding of the utilization of features the Trainer provides and on how to include it in your pytorch projects. </br>
 
 <img width="720" alt="image" src="https://user-images.githubusercontent.com/50489165/224524370-7530ef27-44a7-4a4f-98d7-4b6ff892c362.png">
 
