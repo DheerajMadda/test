@@ -7,6 +7,11 @@ This Trainer makes development of Pytorch training extremely easy and fast while
 </br>
 </br>
 
+<img width="1024" alt="image" src="https://github.com/DheerajMadda/test/assets/50489165/39bffed4-0c0f-4b44-9a44-20e04717c3e3">
+
+</br>
+</br>
+
 The Trainer features the following: </br>
 
 - Supports **Model Profiling**: Model Size, Num_Parameters, MACs, FLOPs, Inference Latency </br>
