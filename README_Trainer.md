@@ -19,7 +19,7 @@ The Trainer features the following: </br>
 
 - Supports **Callbacks**: EarlyStopping, ModelCheckpoint </br>
 
-- Supports **Training Precisions**: FP32, FP16, BF16, FP16 AMP, BF16 AMP </br>
+- Supports **Training Precisions**: FP32, FP16 AMP, BF16 AMP </br>
 
 - Supports **Gradient Accumulation**: Accumulates gradients over several batches </br>
 
