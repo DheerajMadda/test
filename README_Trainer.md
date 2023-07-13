@@ -81,10 +81,6 @@ Note: </br>
 
 &emsp;&emsp; □ **FP32**: This is the default training precision (single-precision) of the Trainer. Range:- 1.17e-38 to 3.40e38 </br>
 
-&emsp;&emsp; □ **FP16**: It trains the model in FP16 (half-precision). It helps in reducing memory consumption. But it is recommended to **NOT** use this precision for training as it has small dynamic range and may result in NaN values during training. Range:- 6.10e-5 to 6.55e4 </br>
-
-&emsp;&emsp; □ **BF16**: It trains the model in  </br>
-
 &emsp;&emsp; □ **FP16 AMP (Automatic Mixed Precision)**: It trains the model in both FP32 and FP16. The reduction in memory consumption may not be significant. It is preferred over true FP16 as it uses both the single and half precisions that will avoid producing NaN values during training. </br>
 
 &emsp;&emsp; □ **BF16 AMP (Automatic Mixed Precision)**: Brain-Floating, BFP16 (half-precision: a format that was developed by Google Brain, an artificial intelligence research group at Google). It helps in reducing memory consumption. It has the same dynamic range as FP32. It is important to note that it is only supported on the Ampere architecture GPUs and the Trainer will raise an Exception if it is compiled with BF16 for CPU, or the GPU that does not support it. Range:- 1.17e-38 to 3.40e38. Now, BF16 AMP (Automatic Mixed Precision), it trains the model in both FP32 and BFP16. The reduction in memory consumption may not be significant. </br>
