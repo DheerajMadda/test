@@ -43,7 +43,7 @@ Note: </br>
 
 ### Examples: </br>
 
-<img width="512" alt="profiling" src="https://github.com/DheerajMadda/test/assets/50489165/62bf0e7f-7d5b-4f47-8e8e-32396d4beedc">
+<img width="580" alt="profiling" src="https://github.com/DheerajMadda/test/assets/50489165/62bf0e7f-7d5b-4f47-8e8e-32396d4beedc">
 
 </br>
 </br>
@@ -119,23 +119,6 @@ Note: </br>
 </br>
 </br>
 
-## Examples
-
-- Below is an example of profiling and its output taken from [this notebook](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/1_Torch_Trainer_Tutorial.ipynb) </br>
-
-<img width="512" alt="profiling" src="https://user-images.githubusercontent.com/50489165/224521425-6155462b-10da-4ed5-be35-48e2ef2388a7.png">
-
-</br>
-</br>
-
-- Below is an example of training the model using the Trainer, taken from [this notebook](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/1_Torch_Trainer_Tutorial.ipynb). Also, this notebook provides a means to have the better understanding of the utilization of features the Trainer provides and on how to include it in your pytorch projects. </br>
-
-<img width="720" alt="image" src="https://user-images.githubusercontent.com/50489165/224524370-7530ef27-44a7-4a4f-98d7-4b6ff892c362.png">
-
-<img width="720"  alt="progress_bar" src="https://user-images.githubusercontent.com/50489165/224524386-345b9af8-318a-4a8b-b66e-2f754192bf30.gif">
-
-</br>
-</br>
 
 ### (Optional) What are FLOPs and MACs?
 Complexity of the model can be measured using the model size, Floating Point Operations(FLOPs), Multiply-Accumulate Computations(MACs), the number of model parameters, and the inference latency. These are model KPIs. </br>
