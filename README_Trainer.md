@@ -38,6 +38,8 @@ Note: </br>
 
 - It is suggested to use PyTorch 2.0 and above, as the Trainer is tested for the same. </br>
 
+- To get started with this Trainer, please go through [this](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/1_Torch_Trainer_Tutorial.ipynb) notebook. </br>
+
 </br>
 </br>
 
