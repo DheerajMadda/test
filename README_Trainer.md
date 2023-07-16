@@ -71,7 +71,7 @@ Note: MACs and FLOPs are with respect to batch size of 1. </br>
 
 Please find the following experimentation result: </br>
 
-<img width="580" alt="experiments" src="https://github.com/DheerajMadda/test/assets/50489165/fc7dcb80-5a52-4c11-b04b-f5ddb7d059d8">
+<img width="960" alt="experiments" src="https://github.com/DheerajMadda/test/assets/50489165/fc7dcb80-5a52-4c11-b04b-f5ddb7d059d8">
 
 </br>
 
