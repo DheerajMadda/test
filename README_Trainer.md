@@ -32,7 +32,7 @@ The Trainer features the following: </br>
 
 Note: </br>
 
-- By default, the Trainer trains the model with FP32 precision and it only displays the progress bar with information of epoch, learning rate, loss and metric(s) if provided any. All other features can be used as required. </br>
+- By default, the Trainer trains the model with FP32 precision with given criterion and optimizer. All other features can be used as required. </br>
 
 - It is recommended and important that the loss and metric functions must return an averaged value or reduction by 'mean'. </br>
 
@@ -40,7 +40,33 @@ Note: </br>
 
 - It is recommended to use [torchmetrics](https://pypi.org/project/torchmetrics/) as it supports computations on "cpu" as well as "cuda". </br>
 
+- Not all operations support BF16 precision. The trainer will raise and Exception upon trainer.fit() if there is occurance of any such case. </br>
+
 - To get started with this Trainer, please go through [this](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/1_Torch_Trainer_Tutorial.ipynb) notebook. </br>
+
+</br>
+</br>
+
+### Experimentation: </br>
+An experimentation has been carried out to compare the various training precisions using 3 factors; i) CUDA memory usage during training ii) training time iii) accuracy achieved. </br>
+
+The model used is [EfficientNet-B5](https://pytorch.org/vision/main/models/generated/torchvision.models.efficientnet_b5.html) and dataset used is [Standford Cars Dataset](https://www.kaggle.com/datasets/jessicali9530/stanford-cars-dataset). The model is trained for 10 epochs and with same settings for various training precisions. </br>
+
+EfficientNet-B5 details: </br>
+
+- Model size = 110.542 MB </br>
+
+- Number of parameters = ~28.74 Million </br>
+
+- MACs = ~2.458 GMACs </br>
+
+- FLOPs = ~4.916 GFLOPs
+
+Note: MACs and FLOPs are with respect to batch size of 1. </br>
+
+Please find the following experimentation result: </br>
+
+
 
 </br>
 </br>
@@ -110,9 +136,9 @@ Note: </br>
 
 &emsp;&emsp; □ **FP32**: This is the default training precision (single-precision) of the Trainer. Range:- 1.17e-38 to 3.40e38 </br>
 
-&emsp;&emsp; □ **FP16 AMP (Automatic Mixed Precision)**: It trains the model in both FP32 and FP16. The reduction in memory consumption may not be significant. It is preferred over true FP16 as it uses both the single and half precisions that will avoid producing NaN values during training. </br>
+&emsp;&emsp; □ **FP16 AMP (Automatic Mixed Precision)**: FP16 Range:- -65504 to 65504. FP16 AMP trains the model in both FP32 and FP16. The reduction in memory consumption may not be significant. It is preferred over true FP16 as it uses both the single and half precisions that will avoid producing NaN values during training. There will be significant reduction in memory usage. </br>
 
-&emsp;&emsp; □ **BF16 AMP (Automatic Mixed Precision)**: Brain-Floating, BFP16 (half-precision: a format that was developed by Google Brain, an artificial intelligence research group at Google). It helps in reducing memory consumption. It has the same dynamic range as FP32. It is important to note that it is only supported on the Ampere architecture GPUs and the Trainer will raise an Exception if it is compiled with BF16 for CPU, or the GPU that does not support it. Range:- 1.17e-38 to 3.40e38. Now, BF16 AMP (Automatic Mixed Precision), it trains the model in both FP32 and BFP16. The reduction in memory consumption may not be significant. </br>
+&emsp;&emsp; □ **BF16 AMP (Automatic Mixed Precision)**: Brain-Floating, BFP16 (half-precision: a format that was developed by Google Brain, an artificial intelligence research group at Google). It helps in reducing memory consumption. It has the same dynamic range as FP32. It is important to note that it is only supported on the Ampere architecture GPUs and the Trainer will raise an Exception if it is compiled with BF16 for CPU, or the GPU that does not support it. Range:- 1.17e-38 to 3.40e38. Now, BF16 AMP (Automatic Mixed Precision), it trains the model in both FP32 and BFP16. There will be significant reduction in memory usage.  </br>
 
 - **Gradient Accumulation:** The Trainer comes with easy to use gradient accumulation technique.To use the gradient accumulation, **gradient_acc_steps** need to be set as an integer value that specifies the number of steps the gradients should be accumulated before updating the model parameters. </br>
 
