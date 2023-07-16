@@ -55,7 +55,7 @@ Note: </br>
 ### Experimentation: </br>
 An experimentation has been carried out to compare the various training precisions using 3 factors; i) CUDA memory usage during training ii) training time iii) accuracy achieved. </br>
 
-The model used is [EfficientNet-B5](https://pytorch.org/vision/main/models/generated/torchvision.models.efficientnet_b5.html) and dataset used is [Standford Cars Dataset](https://www.kaggle.com/datasets/jessicali9530/stanford-cars-dataset). The model is trained for 10 epochs and with same settings for various training precisions on device: Nvidia RTX 3080 TI 16GB. </br>
+The model used is [EfficientNet-B5](https://pytorch.org/vision/main/models/generated/torchvision.models.efficientnet_b5.html) and dataset used is [Standford Cars Dataset](https://www.kaggle.com/datasets/jessicali9530/stanford-cars-dataset). For a fair comparison, the model is only trained for 10 epochs and with same settings for various training precisions on device: Nvidia RTX 3080 TI 16GB. </br>
 
 EfficientNet-B5 details: </br>
 
@@ -74,7 +74,7 @@ Please find the following experimentation result: </br>
 
 </br>
 
-Note: When using FP16 AMP + Gradient Accumulation, the accuracy achieved is less compared to FP32 training. To get to the same level of accuracy as of FP32, it requires to be trained for couple more number of epochs as compared to FP32 training.
+Note: When using FP16 AMP + Gradient Accumulation, the accuracy achieved is less compared to FP32 training. To get to the same level of accuracy as of FP32, it requires to be trained for more number of epochs as compared to FP32 training.
 
 
 </br>
