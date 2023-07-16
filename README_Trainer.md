@@ -72,6 +72,10 @@ Note: MACs and FLOPs are with respect to batch size of 1. </br>
 Please find the following experimentation result: </br>
 
 
+</br>
+
+Note: When using FP16 AMP + Gradient Accumulation, the accuracy achieved is less compared to FP32 training. To get to the same level of accuracy as of FP32, it requires to be trained for couple more number of epochs as compared to FP32 training.
+
 
 </br>
 </br>
