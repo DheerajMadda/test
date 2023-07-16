@@ -4,6 +4,9 @@ Development of training PyTorch models is not so simple. The training scripts ar
 
 This Trainer makes development of Pytorch training extremely easy and fast while making it as generic as possible from project to project. It helps an individual to focus more on data preprocessing and experimenting various model architectures rather than spending more than sufficient amount of time on writing training scripts. The Trainer also provides many interesting features which can be easily used as required. </br>
 
+</br>
+</br>
+
 <img width="849" alt="pytorch_board_v2" src="https://github.com/DheerajMadda/test/assets/50489165/46b50ce8-5d13-4e18-b639-de49f173536c">
 
 </br>
