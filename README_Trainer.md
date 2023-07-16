@@ -19,7 +19,7 @@ The Trainer features the following: </br>
 
 - Supports **Callbacks**: EarlyStopping, ModelCheckpoint </br>
 
-- Supports **Training Precisions**: FP32, FP16 AMP, BF16 AMP </br>
+- Supports **Training Precisions**: Single Precision - FP32, Mixed-Precisions - FP16 AMP, BF16 AMP </br>
 
 - Supports **Gradient Accumulation**: Accumulates gradients over several batches </br>
 
@@ -45,7 +45,7 @@ Note: </br>
 </br>
 </br>
 
-### Examples: </br>
+### Usage Examples: </br>
 
 <img width="580" alt="profiling" src="https://github.com/DheerajMadda/test/assets/50489165/62bf0e7f-7d5b-4f47-8e8e-32396d4beedc">
 
@@ -114,7 +114,7 @@ Note: </br>
 
 &emsp;&emsp; □ **BF16 AMP (Automatic Mixed Precision)**: Brain-Floating, BFP16 (half-precision: a format that was developed by Google Brain, an artificial intelligence research group at Google). It helps in reducing memory consumption. It has the same dynamic range as FP32. It is important to note that it is only supported on the Ampere architecture GPUs and the Trainer will raise an Exception if it is compiled with BF16 for CPU, or the GPU that does not support it. Range:- 1.17e-38 to 3.40e38. Now, BF16 AMP (Automatic Mixed Precision), it trains the model in both FP32 and BFP16. The reduction in memory consumption may not be significant. </br>
 
-- **Gradient Accumulation:** It is a technique where you can train on bigger batch sizes than your machine would normally be able to fit into memory. This is done by accumulating gradients over several batches, and only stepping the optimizer after a certain number of batches have been performed. It will cost additional training time. </br>
+- **Gradient Accumulation:** The Trainer comes with easy to use gradient accumulation technique.To use the gradient accumulation, **gradient_acc_steps** need to be set as an integer value that specifies the number of steps the gradients should be accumulated before updating the model parameters. </br>
 
 - **Training History:** It records the training history:- epoch, learning rate, loss and/or metric(s). It also provides methods to plot the loss and metric(s). </br>
 
@@ -123,6 +123,61 @@ Note: </br>
 </br>
 </br>
 
+### What is Mixed-Precision Training?
+- Mixed precision training uses both 16-bit and 32-bit precision to ensure no loss in accuracy. The computation of gradients in the 16-bit representation is much faster than in the 32-bit format and saves a significant amount of memory. This strategy is beneficial, especially when we are memory or compute-constrained. </br>
+
+- It’s called “mixed-“rather than “low-“precision training because we don’t transfer all parameters and operations to 16-bit floats. Instead, we switch between 32-bit and 16-bit operations during training, hence, the term “mixed” precision. </br>
+
+Following is an example of FP16-bit mixed precision training. Note that, BF16-bit mixed precision training is also similar. </br>
+
+<img width="512" alt="mixed_precision" src="https://github.com/DheerajMadda/test/assets/50489165/21ddbb5c-5bf6-4059-87f4-9d1ca44bd7d8">
+
+</br>
+</br>
+
+### What is Gradient Accumulation?
+- Gradient accumulation is a way to virtually increase the batch size during training, which is very useful when the available GPU memory is insufficient to accommodate the desired batch size. Note that this only affects the runtime, not the modeling performance. </br>
+
+- In gradient accumulation, gradients are computed for smaller batches and accumulated (usually summed or averaged) over multiple iterations instead of updating the model weights after every batch. Once the accumulated gradients reach the target “virtual” batch size, the model weights are updated with the accumulated gradients. </br>
+
+- For example, if we want to use a batch size of 256 but can only fit a batch size of 64 into GPU memory, we can perform gradient accumulation over four batches of size 64. (After processing all four batches, we will have the accumulated gradients equivalent to a single batch of size 256.) This allows us to effectively emulate a larger batch size without requiring larger GPU memory or tensor sharding across different devices. </br>
+
+- While gradient accumulation can help us train models with larger batch sizes, it does not reduce the total computation required. In fact, it can sometimes lead to a slightly slower training process, as the weight updates are performed less frequently. Nevertheless, it allows us to work around limitations where we have very small batch sizes that lead to noisy updates.
+
+In short: </br>
+
+- a) Using an actual batch size of 16 and thus updating the model parameters for an effective batch size of 16. </br>
+
+- b) Using gradient accumulation with 4 accumulation steps means we will now use an actual batch size of 4 (since 16 / 4 = 4). Now we are reducing the batch size and thus the memory consumption, but we are updating the model parameters for an effective batch size of 16 only. <br>
+
+</br>
+</br>
+
+### (Optional) Why not to train models with just Half Precisions - FP16 or BF16?
+While training with just half precisions like FP16 anf BF16 is possible, it is often not recommended! </br>
+
+<img width="512" alt="diff_precisions" src="https://github.com/DheerajMadda/test/assets/50489165/d40126fc-f2f0-4915-95f9-5b01a13cccdd">
+
+FP32:- Dynamic range = 1.17e-38 to 3.40e38; Precision = 6–9 significant decimals. </br>
+
+FP16:- Dynamic range = -65504 to 65504; Precision = 3-4 significant decimals.</br>
+
+BF16:- Dynamic range = 1.17e-38 to 3.40e38; Precision = 2–3 significant decimals. </br>
+
+If you train a model with FP16-bit precision, you may encounter NaN values in the loss: </br>
+
+Epoch: 01/100 | Batch 000/703 | Loss: 2.4105 </br>
+
+Epoch: 01/100 | Batch 300/703 | Loss: nan </br>
+
+Epoch: 01/100 | Batch 600/703 | Loss: nan </br>
+
+Because, regular 16-bit floats can only represent numbers between -65,504 and 65,504. </br>
+
+Now the extended dynamic range helps bf-16 to represent very large and very small numbers, making it more suitable for deep learning applications where a wide range of values might be encountered. However, it has even lower decimal precision than the regular 16-bit and this may affect the accuracy of certain calculations or lead to rounding errors in some cases. This may affect the the performance of the model. Thus, regular FP16 or BF16 is not preferred for training the models, but instead its mixed versions (FP16-FP32, BF16-FP32) are preferred and are widely used. </br>
+
+</br>
+</br>
 
 ### (Optional) What are FLOPs and MACs?
 Complexity of the model can be measured using the model size, Floating Point Operations(FLOPs), Multiply-Accumulate Computations(MACs), the number of model parameters, and the inference latency. These are model KPIs. </br>
