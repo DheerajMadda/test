@@ -45,7 +45,7 @@ Note: </br>
 
 - It is recommended to use [torchmetrics](https://pypi.org/project/torchmetrics/) as it supports computations on "cpu" as well as "cuda". </br>
 
-- Not all operations support BF16 precision. The trainer will raise and Exception upon trainer.fit() if there is occurance of any such case. </br>
+- Not all operations support BF16 precision. The trainer will raise and Exception upon trainer.fit() if there is an occurance of any such case. </br>
 
 - To get started with this Trainer, please go through [this](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/1_Torch_Trainer_Tutorial.ipynb) notebook. </br>
 
