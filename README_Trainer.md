@@ -4,6 +4,8 @@ Development of training PyTorch models is not so simple. The training scripts ar
 
 This Trainer makes development of Pytorch training extremely easy and fast while making it as generic as possible from project to project. It helps an individual to focus more on data preprocessing and experimenting various model architectures rather than spending more than sufficient amount of time on writing training scripts. The Trainer also provides many interesting features which can be easily used as required. </br>
 
+<img width="849" alt="pytorch_board_v2" src="https://github.com/DheerajMadda/test/assets/50489165/46b50ce8-5d13-4e18-b639-de49f173536c">
+
 </br>
 </br>
 
@@ -200,7 +202,7 @@ Epoch: 01/100 | Batch 600/703 | Loss: nan </br>
 
 Because, regular 16-bit floats can only represent numbers between -65,504 and 65,504. </br>
 
-Now the extended dynamic range helps bf-16 to represent very large and very small numbers, making it more suitable for deep learning applications where a wide range of values might be encountered. However, it has even lower decimal precision than the regular 16-bit and this may affect the accuracy of certain calculations or lead to rounding errors in some cases. This may affect the the performance of the model. Thus, regular FP16 or BF16 is not preferred for training the models, but instead its mixed versions (FP16-FP32, BF16-FP32) are preferred and are widely used. </br>
+Now the extended dynamic range helps bf16 to represent very large and very small numbers, making it more suitable for deep learning applications where a wide range of values might be encountered. However, it has even lower decimal precision than the regular 16-bit and this may affect the accuracy of certain calculations or lead to rounding errors in some cases. This may affect the the performance of the model. Thus, regular FP16 or BF16 is not preferred for training the models, but instead its mixed versions (FP16-FP32, BF16-FP32) are preferred and are widely used. </br>
 
 </br>
 </br>
