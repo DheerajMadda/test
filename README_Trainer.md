@@ -95,12 +95,6 @@ Please find the following experimentation result: </br>
 </br>
 </br>
 
-<img width="720" alt="image" src="https://github.com/DheerajMadda/test/assets/50489165/8ca3e0b0-3ea6-4838-aaaf-785c339e2c86">
-
-
-</br>
-</br>
-
 #### Directory and files information:-
 - [notebooks](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/) -> contains the jupyter notebook. 
 
