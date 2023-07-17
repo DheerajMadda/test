@@ -8,6 +8,7 @@ This Trainer makes development of Pytorch training extremely easy and fast while
 </br>
 
 <img width="849" alt="pytorch_board_v2" src="https://github.com/DheerajMadda/test/assets/50489165/46b50ce8-5d13-4e18-b639-de49f173536c">
+<img width="869" alt="addtional_time" src="https://github.com/DheerajMadda/test/assets/50489165/bcb5f703-f41c-4eee-8433-f56406ecdd3e">
 
 </br>
 </br>
@@ -99,17 +100,6 @@ Note: When using FP16 AMP + Gradient Accumulation, the accuracy achieved is less
 
 </br>
 </br>
-
-#### Directory and files information:-
-- [notebooks](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/notebooks/) -> contains the jupyter notebook. 
-
-- [torch_trainer](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/torch_trainer) -> contains the profiling and training utilities.
-
-- [utils](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/utils) -> contains the loss and metrics definition.
-
-- [demo](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/demo/Classification.ipynb) -> contains the experimentation notebook.
-
-- [requirements.txt](https://github.com/tpjesudhas/cv_component/tree/main/core/CV_Utils/Trainer/requirements.txt) -> contains all the required libraries to be installed.
 
 </br>
 </br>
