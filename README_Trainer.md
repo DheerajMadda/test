@@ -9,7 +9,7 @@ This Trainer makes development of Pytorch training extremely easy and fast while
 
 <img width="849" alt="pytorch_board_v2" src="https://github.com/DheerajMadda/test/assets/50489165/46b50ce8-5d13-4e18-b639-de49f173536c">
 
-<img width="597" alt="additional_time" src="https://github.com/DheerajMadda/test/assets/50489165/4abdaf25-e4b4-4030-a3a7-a4b6ecdaee99">
+<img width="848" alt="additional_time" src="https://github.com/DheerajMadda/test/assets/50489165/4abdaf25-e4b4-4030-a3a7-a4b6ecdaee99">
 
 </br>
 </br>
