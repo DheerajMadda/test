@@ -15,3 +15,5 @@
 <img width="512" alt="image" src="https://github.com/DheerajMadda/test/assets/50489165/d346d689-64cf-4296-ac4f-3540f6548d66">
 
 <img width="871" alt="image" src="https://github.com/DheerajMadda/test/assets/50489165/27e8264b-98df-44e3-9b83-7e1fc1af7a4b">
+
+<img width="1024" alt="ssl_monocular_depth" src="https://github.com/DheerajMadda/test/assets/50489165/f43c0001-28d0-4b4a-a693-4cbceffeac9c">
