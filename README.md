@@ -17,3 +17,6 @@
 <img width="871" alt="image" src="https://github.com/DheerajMadda/test/assets/50489165/27e8264b-98df-44e3-9b83-7e1fc1af7a4b">
 
 <img width="1024" alt="ssl_monocular_depth" src="https://github.com/DheerajMadda/test/assets/50489165/f43c0001-28d0-4b4a-a693-4cbceffeac9c">
+
+<img width="1024" alt="lite-mono" src="https://github.com/DheerajMadda/test/assets/50489165/4e92761d-e80a-498b-ba0c-2d8d40036365">
+
